@@ -1,0 +1,95 @@
+@import "defaults"
+@import "mixins"
+
+gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1))
+
+gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns)
+  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2)
+
+gridSystem-gridColumn($gridGutterWidth)
+  float: left
+  margin-left: $gridGutterWidth
+
+gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
+  .row
+    margin-left: $gridGutterWidth * -1
+    clearfix()
+
+  [class*="span"]
+    $gridSystem-gridColumn($gridGutterWidth)
+
+  for $i in 1..11
+    .span{$i}
+      gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i)
+  .span12,
+  .container
+    gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12)
+
+  for $i in 1..11
+    .offset{$i}
+      gridSystem-offset($gridColumnWidth, $gridGutterWidth, $i)
+
+fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns)
+  width: 1% * ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1))
+
+fluidGridSystem-gridColumn($fluidGridGutterWidth)
+  float: left
+  margin-left: $fluidGridGutterWidth
+
+fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth)
+  .row-fluid
+    width: 100%
+    clearfix()
+
+    > [class*="span"]
+      fluidGridSystem-gridColumn($fluidGridGutterWidth)
+
+    > [class*="span"]:first-child
+      margin-left: 0
+    for $i in 1..11
+      > .span{$i}
+        fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $i)
+
+// Input grid system
+inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
+  width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10
+
+inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
+  input,
+  textarea,
+  .uneditable-input
+    for $i in 1..12
+      &.span{$i}
+        inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i)
+
+makeRow()
+  margin-left: $gridGutterWidth * -1
+  clearfix()
+
+makeColumn($columns = 1)
+  float: left
+  margin-left: GRID_GUTTER_WIDTH
+  width: (GRID_COLUMN_WIDTH * $columns) + (GRID_GUTTER_WIDTH * ($columns - 1))
+
+formFieldState($textColor = #555, $borderColor = #ccc, $backgroundColor = #f5f5f5)
+  > label,
+  .help-block,
+  .help-inline
+    color: $textColor
+  input,
+  select,
+  textarea
+    color: $textColor
+    border-color: $borderColor
+    &:focus
+      border-color: darken($borderColor, 10%)
+      box-shadow: 0 0 6px lighten($borderColor, 20%)
+  .input-prepend .add-on,
+  .input-append .add-on
+    color: $textColor
+    background-color: $backgroundColor
+    border-color: $textColor
+   
+gridSystem-generate(GRID_COLUMNS, GRID_COLUMN_WIDTH, GRID_GUTTER_WIDTH)
+fluidGridSystem-generate(GRID_COLUMNS, FLUID_GRID_COLUMN_WIDTH, FLUID_GRID_GUTTER_WIDTH)

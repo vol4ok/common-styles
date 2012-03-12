@@ -1,0 +1,206 @@
+@import "defaults"
+@import "mixins"
+
+p
+  margin: 0 0 (BASE_LINE_HEIGHT/2)
+  font-family: BASE_FONT_FAMILY
+  font-size: BASE_FONT_SIZE
+  line-height: BASE_LINE_HEIGHT
+  small
+    font-size: BASE_FONT_SIZE - 2
+    color: GRAYLIGHT
+
+.lead
+  margin-bottom: BASE_LINE_HEIGHT
+  font-size: 20px
+  font-weight: 200
+  line-height: BASE_LINE_HEIGHT * 1.5
+
+
+// HEADINGS
+// --------
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  font-weight: bold
+  color: GRAYDARK
+  text-rendering: optimizelegibility // Fix the character spacing for headings
+  small
+    font-weight: normal
+    color: GRAYLIGHT
+
+
+h1
+  font-size: 30px
+  line-height: BASE_LINE_HEIGHT * 2
+  small
+    font-size: 18px
+
+
+h2
+  font-size: 24px
+  line-height: BASE_LINE_HEIGHT * 2
+  small
+    font-size: 18px
+
+
+h3
+  line-height: BASE_LINE_HEIGHT * 1.5
+  font-size: 18px
+  small
+    font-size: 14px
+
+
+h4, h5, h6
+  line-height: BASE_LINE_HEIGHT
+
+h4
+  font-size: 14px
+  small
+    font-size: 12px
+
+h5
+  font-size: 12px
+
+h6
+  font-size: 11px
+  color: GRAYLIGHT
+  text-transform: uppercase
+
+// Page header
+.page-header
+  padding-bottom: BASE_LINE_HEIGHT - 1
+  margin: BASE_LINE_HEIGHT 0
+  border-bottom: 1px solid $grayLighter
+
+.page-header h1
+  line-height: 1
+
+
+
+
+// LISTS
+// -----
+
+// Unordered and Ordered lists
+ul, ol
+  padding: 0
+  margin: 0 0 (BASE_LINE_HEIGHT/2) 25px
+
+ul ul,
+ul ol,
+ol ol,
+ol ul
+  margin-bottom: 0
+
+ul
+  list-style: disc
+
+ol
+  list-style: decimal
+
+li
+  line-height: BASE_LINE_HEIGHT
+
+ul.unstyled,
+ol.unstyled
+  margin-left: 0
+  list-style: none
+
+
+// Description Lists
+dl
+  margin-bottom: BASE_LINE_HEIGHT
+
+dt,
+dd
+  line-height: BASE_LINE_HEIGHT
+
+dt
+  font-weight: bold
+
+dd
+  margin-left: (BASE_LINE_HEIGHT/2)
+
+
+// MISC
+// ----
+
+// Horizontal rules
+hr
+  margin: BASE_LINE_HEIGHT 0
+  border: 0
+  border-top: 1px solid HRBORDER
+  border-bottom: 1px solid WHITE
+
+
+// Emphasis
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+
+.muted
+  color: GRAYLIGHT
+
+
+// Abbreviations and acronyms
+abbr
+  font-size: 90%
+  text-transform: uppercase
+  border-bottom: 1px dotted #ddd
+  cursor: help
+
+
+// Blockquotes
+blockquote
+  padding: 0 0 0 15px
+  margin: 0 0 BASE_LINE_HEIGHT
+  border-left: 5px solid GRAYLIGHTER
+  p
+    margin-bottom: 0
+    font-shorthand(16px, 300, BASE_LINE_HEIGHT * 1.25)
+
+  small
+    display: block
+    line-height: BASE_LINE_HEIGHT
+    color: GRAYLIGHT
+    &:before
+      content: '\2014 \00A0'
+
+  // Float right with text-align: right
+  &.pull-right
+    float: right
+    padding-left: 0
+    padding-right: 15px
+    border-left: 0
+    border-right: 5px solid GRAYLIGHTER
+    p,
+    small
+      text-align: right
+
+// Quotes
+q:before,
+q:after,
+blockquote:before,
+blockquote:after
+  content: ""
+
+
+// Addresses
+address
+  display: block
+  margin-bottom: BASE_LINE_HEIGHT
+  line-height: BASE_LINE_HEIGHT
+  font-style: normal
+
+
+// Misc
+small
+  font-size: 100%
+
+cite
+  font-style: normal
+
+
