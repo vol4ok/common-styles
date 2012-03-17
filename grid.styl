@@ -1,5 +1,4 @@
-@import "defaults"
-@import "mixins"
+// FIXED
 
 gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1))
@@ -12,12 +11,13 @@ gridSystem-gridColumn($gridGutterWidth)
   margin-left: $gridGutterWidth
 
 gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
+
   .row
     margin-left: $gridGutterWidth * -1
     clearfix()
 
   [class*="span"]
-    $gridSystem-gridColumn($gridGutterWidth)
+    gridSystem-gridColumn($gridGutterWidth)
 
   for $i in 1..11
     .span{$i}
@@ -29,6 +29,8 @@ gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
   for $i in 1..11
     .offset{$i}
       gridSystem-offset($gridColumnWidth, $gridGutterWidth, $i)
+
+// FLUID
 
 fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns)
   width: 1% * ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1))
@@ -51,7 +53,8 @@ fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWi
       > .span{$i}
         fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $i)
 
-// Input grid system
+// INPUT
+
 inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns)
   width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10
 
@@ -90,6 +93,8 @@ formFieldState($textColor = #555, $borderColor = #ccc, $backgroundColor = #f5f5f
     color: $textColor
     background-color: $backgroundColor
     border-color: $textColor
+
+// GENERATE
    
 gridSystem-generate(GRID_COLUMNS, GRID_COLUMN_WIDTH, GRID_GUTTER_WIDTH)
 fluidGridSystem-generate(GRID_COLUMNS, FLUID_GRID_COLUMN_WIDTH, FLUID_GRID_GUTTER_WIDTH)

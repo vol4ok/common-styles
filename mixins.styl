@@ -1,5 +1,5 @@
-@import "vendors"
-@import "gradients"
+@import "mixins.vendors"
+@import "mixins.gradients"
 
 -pos(type, args)
   i = 0
@@ -47,8 +47,8 @@ center-block()
   margin-left: auto
   margin-right: auto
   
-container-fixed()
-  width: GRID_ROW_WIDTH
+container-fixed($width = GRID_ROW_WIDTH)
+  width: $width
   margin-left: auto
   margin-right: auto
   clearfix()
