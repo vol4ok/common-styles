@@ -11,7 +11,6 @@ gridSystem-gridColumn($gridGutterWidth)
   margin-left: $gridGutterWidth
 
 gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
-
   .row
     margin-left: $gridGutterWidth * -1
     clearfix()
@@ -67,7 +66,7 @@ inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth)
         inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $i)
 
 makeRow()
-  margin-left: $gridGutterWidth * -1
+  margin-left: GRID_GUTTER_WIDTH * -1
   clearfix()
 
 makeColumn($columns = 1)
