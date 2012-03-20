@@ -2,23 +2,22 @@
   margin-left: 0
   margin-bottom: BASE_LINE_HEIGHT
   list-style: none
+  li a
+    display: block
 
-.nav > li > a
-  display: block
+  li a:hover
+    text-decoration: none
+    background-color: GRAYLIGHTER
 
-.nav > li > a:hover
-  text-decoration: none
-  background-color: GRAYLIGHTER
-
-.nav .nav-header
-  display: block
-  padding: 3px 15px
-  font-size: 11px
-  font-weight: bold
-  line-height: BASE_LINE_HEIGHT
-  color: GRAYLIGHT
-  text-shadow: 0 1px 0 rgba(255,255,255,.5)
-  text-transform: uppercase
+  .nav-header
+    display: block
+    padding: 3px 15px
+    font-size: 11px
+    font-weight: bold
+    line-height: BASE_LINE_HEIGHT
+    color: GRAYLIGHT
+    text-shadow: 0 1px 0 rgba(255,255,255,.5)
+    text-transform: uppercase
 
 .nav li + .nav-header
   margin-top: 9px
@@ -30,84 +29,73 @@
   padding-left: 14px
   padding-right: 14px
   margin-bottom: 0
+  li a,
+  .nav-header
+    margin-left:  -15px
+    margin-right: -15px
+    text-shadow: 0 1px 0 rgba(255,255,255,.5)
 
-.nav-list > li > a,
-.nav-list .nav-header
-  margin-left:  -15px
-  margin-right: -15px
-  text-shadow: 0 1px 0 rgba(255,255,255,.5)
+  li a
+    padding: 3px 15px
 
-.nav-list > li > a
-  padding: 3px 15px
-
-.nav-list .active > a,
-.nav-list .active > a:hover
-  color: WHITE
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2)
-  background-color: LINK_COLOR
-
-.nav-list [class^="icon-"]
-  margin-right: 2px
+  .active a,
+  .active a:hover
+    color: WHITE
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2)
+    background-color: LINK_COLOR
+  [class^="icon-"]
+    margin-right: 2px
 
 
 // TABS AND PILLS
 
 .nav-tabs,
 .nav-pills
-  $clearfix()
-
-.nav-tabs > li,
-.nav-pills > li
-  float: left
-
-.nav-tabs > li > a,
-.nav-pills > li > a
-  padding-right: 12px
-  padding-left: 12px
-  margin-right: 2px
-  line-height: 14px // keeps the overall height an even number
+  clearfix()
+  li
+    float: left
+    a
+      padding-right: 12px
+      padding-left: 12px
+      margin-right: 2px
+      line-height: 14px // keeps the overall height an even number
 
 
 // TABS
-// ----
 
 .nav-tabs
   border-bottom: 1px solid #ddd
-
-.nav-tabs > li
-  margin-bottom: -1px
-
-.nav-tabs > li > a
-  padding-top: 9px
-  padding-bottom: 9px
-  border: 1px solid transparent
-  border-radius: 4px 4px 0 0
-  &:hover
-    border-color: GRAYLIGHTER GRAYLIGHTER #ddd
-
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover
-  color: GRAY
-  background-color: WHITE
-  border: 1px solid #ddd
-  border-bottom-color: transparent
-  cursor: default
+  li
+    margin-bottom: -1px
+    a
+      padding-top: 9px
+      padding-bottom: 9px
+      border: 1px solid transparent
+      border-radius: 4px 4px 0 0
+      &:hover
+        border-color: GRAYLIGHTER GRAYLIGHTER #ddd
+  .active a,
+  .active a:hover
+    color: GRAY
+    background-color: WHITE
+    border: 1px solid #ddd
+    border-bottom-color: transparent
+    cursor: default
 
 
 // PILLS
-// -----
 
-.nav-pills > li > a
-  padding-top: 8px
-  padding-bottom: 8px
-  margin-top: 2px
-  margin-bottom: 2px
-  border-radius: 5px
-
-.nav-pills .active > a,
-.nav-pills .active > a:hover
-  color: WHITE
-  background-color: LINK_COLOR
+.nav-pills 
+  li a
+    padding-top: 8px
+    padding-bottom: 8px
+    margin-top: 2px
+    margin-bottom: 2px
+    border-radius: 5px
+  .active a,
+  .active a:hover
+    color: WHITE
+    background-color: LINK_COLOR
 
 
 
@@ -115,38 +103,32 @@
 // STACKED NAV
 // -----------
 
-.nav-stacked > li
-  float: none
-
-.nav-stacked > li > a
-  margin-right: 0 // no need for the gap between nav items
+.nav-stacked 
+  li
+    float: none
+  li a
+    margin-right: 0 // no need for the gap between nav items
 
 
 .nav-tabs.nav-stacked
   border-bottom: 0
-
-.nav-tabs.nav-stacked > li > a
-  border: 1px solid #ddd
-  border-radius: 0
-
-.nav-tabs.nav-stacked > li:first-child > a
-  border-radius: 4px 4px 0 0
-
-.nav-tabs.nav-stacked > li:last-child > a
-  border-radius: 0 0 4px 4px
-
-.nav-tabs.nav-stacked > li > a:hover
-  border-color: #ddd
-  z-index: 2
+  li a
+    border: 1px solid #ddd
+    border-radius: 0
+  li:first-child a
+    border-radius: 4px 4px 0 0
+  li:last-child a
+    border-radius: 0 0 4px 4px
+  li a:hover
+    border-color: #ddd
+    z-index: 2
 
 
-.nav-pills.nav-stacked > li > a
-  margin-bottom: 3px
-
-.nav-pills.nav-stacked > li:last-child > a
-  margin-bottom: 1px // decrease margin to match sizing of stacked tabs
-
-
+.nav-pills.nav-stacked 
+  li a
+    margin-bottom: 3px
+  li:last-child a
+    margin-bottom: 1px // decrease margin to match sizing of stacked tabs
 
 
 // DROPDOWNS

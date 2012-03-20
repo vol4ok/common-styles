@@ -43,13 +43,14 @@ fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWi
     width: 100%
     clearfix()
 
-    > [class*="span"]
+    [class*="span"]
       fluidGridSystem-gridColumn($fluidGridGutterWidth)
 
-    > [class*="span"]:first-child
+    [class*="span"]:first-child
       margin-left: 0
+
     for $i in 1..11
-      > .span{$i}
+      .span{$i}
         fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $i)
 
 // INPUT
@@ -75,7 +76,7 @@ makeColumn($columns = 1)
   width: (GRID_COLUMN_WIDTH * $columns) + (GRID_GUTTER_WIDTH * ($columns - 1))
 
 formFieldState($textColor = #555, $borderColor = #ccc, $backgroundColor = #f5f5f5)
-  > label,
+  label,
   .help-block,
   .help-inline
     color: $textColor
