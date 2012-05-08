@@ -1,0 +1,26 @@
+.modal-backdrop
+  display: none
+  absolute: all
+  z-index: Z_MODAL_BACKDROP
+  background-color: rgba(WHITE,.7)
+  background-image: url('images/noise4.png')
+  user-select: none
+  cursor: default
+  &.active
+    display: block
+
+.modal-holder-wrap
+  center-block()
+  vcenter-block-wrap()
+
+.modal-holder
+  vcenter-block()
+
+.modal
+  user-select: none
+  display: none
+  position: relative
+  z-index: Z_MODAL
+  box-shadow: 0 5px 16px rgba(BLACK,.75)
+  &.active
+    display: block

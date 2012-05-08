@@ -1,0 +1,40 @@
+.button-base
+  display: inline-block
+  position: relative
+  user-select: none
+  cursor: pointer
+  text-decoration: none
+  line-height: normal
+  font-smoothing: antialiased
+  
+button3D_1()
+  BROWN = #444
+  BROWNDARK = #333
+  COLOR = lighten(BROWN, 5%)
+  button-base()
+  padding: 8px 16px 
+  color: #f0f0f0
+  background: lighten(BROWN, 5%)
+  text-shadow: 0 1px 0 BLACK
+  border-radius: 3px
+  //box-shadow: 0px 3px 0 BROWNDARK, 0px 8px 5px rgba(BLACK,.3), 0px 3px 2px rgba(BLACK,.8), 0px 3px 5px rgba(BLACK,.6)
+  box-shadow: \
+    inset 0 0 2px rgba(black, .8), \
+    inset 0 -1px 0px rgba(white, .2), \
+    0 3px 0 BROWNDARK, \
+    0px 6px 5px rgba(black,.6) , \
+    0px 4px 1px black
+  &:hover
+    color: WHITE
+    text-shadow: 0 0 3px rgba(WHITE,.8), 0 0 5px rgba(WHITE,.7), 0 0 9px rgba(WHITE,.6)
+    background: lighten(BROWN, 10%)
+  &:active, &.active
+    top: 2px
+    color: WHITE
+    background: lighten(BROWN, 10%)
+    box-shadow: \
+      inset 0 0 2px rgba(BROWNDARK, .9), \
+      inset 0 -1px 1px rgba(white, .15), \
+      0 1px 0 BROWNDARK, \
+      0px 3px 2px rgba(black,.7) , \
+      0px 2px 1px black
