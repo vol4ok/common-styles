@@ -1,0 +1,63 @@
+lifted($offset = 5px, $blur = 10px, $color = rgba(black,.3))
+  absolute: all
+  &:after, &:before
+    content: ""
+    absolute: bottom $offset 
+    width: 50%
+    height: 10px
+    background: black
+    box-shadow: 0 $offset $blur $color
+  &:after
+    left $offset
+    transform: rotate(-2deg)
+  &:before
+    right $offset
+    transform: rotate(2deg)
+    
+    
+curved($bottom = -6px, $offset = 1px, $blur = 12px, $color = rgba(black,.3))
+  absolute: all
+  &:after
+    content: ""
+    absolute: top 50% left $blur right $blur bottom $bottom
+    box-shadow: 0 $offset $blur $color
+    border-radius: 100px / 10px
+    
+    
+paper($color = white)
+  absolute: all
+  &:after
+    content: ""
+    absolute: top left 2px right 2px bottom -3px 
+    background: $color
+    border-bottom: 1px solid #ddd
+    box-shadow: 0 1px 3px rgba(black, .5)
+  &:before
+    content: ""
+    absolute: top left 5px right 5px bottom -6px 
+    background: $color
+    border-bottom: 1px solid #ddd
+    box-shadow: 0 1px 3px rgba(black, .5)
+
+
+glossy()   
+  absolute: all 
+  &:after
+    content: ''
+    absolute: top left
+    width: 100%
+    height: 50%
+    border-radius: 3px
+    background: linear-gradient(top, rgba(white,0.7) 0%, rgba(white,.1) 100%)
+    
+    
+tape()
+  absolute: all
+  &:after
+    content: ''
+    absolute: top -10px left 50%
+    size: 50px 16px
+    margin-left: -25px
+    border: solid 1px rgba(137,130,48,.2)
+    box-shadow: inset 0 1px 0 rgba(white,.3), 0 1px 0 rgba(black,.2)
+    background: linear-gradient(top, rgba(254,243,127,.6) 0%,rgba(240,224,54,.6) 100%)
