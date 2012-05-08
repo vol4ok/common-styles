@@ -62,6 +62,24 @@ container-fixed($width = GRID_ROW_WIDTH)
   margin-right: auto
   clearfix()
 
+size($w, $h)
+  width: $w
+  height: $h
+
+placeholder($color)
+  &::-webkit-input-placeholder 
+    color: $color
+  &:-moz-placeholder 
+    color: $color
+  
+selection($color)
+  &::selection
+  	background: $color
+  &::-moz-selection
+  	background: $color
+  &::-webkit-selection
+  	background: $color
 
 resizable(direction = both)
   resize: direction
+  overflow: auto
