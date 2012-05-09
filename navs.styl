@@ -1,275 +1,31 @@
-.nav
-  margin-left: 0
-  margin-bottom: BASE_LINE_HEIGHT
-  list-style: none
-  li a
-    display: block
+navs-base()
+  padding: 0
+  margin: 0
+  li
+    cursor: pointer
+    user-select: none
 
-  li a:hover
-    text-decoration: none
-    background-color: GRAYLIGHTER
-
-  .nav-header
-    display: block
-    padding: 3px 15px
-    font-size: 11px
-    font-weight: bold
-    line-height: BASE_LINE_HEIGHT
-    color: GRAYLIGHT
-    text-shadow: 0 1px 0 rgba(255,255,255,.5)
-    text-transform: uppercase
-
-.nav li + .nav-header
-  margin-top: 9px
-
-
-// NAV LIST
-
-.nav-list
-  padding-left: 14px
-  padding-right: 14px
-  margin-bottom: 0
-  li a, .nav-header
-    margin-left:  -15px
-    margin-right: -15px
-    text-shadow: 0 1px 0 rgba(255,255,255,.5)
-  li a
-    padding: 3px 15px
-
-  .active a,
-  .active a:hover
+toolbar()
+  navs-base()
+  li
+    display: inline-block
+    padding: 0 10px
     color: WHITE
-    text-shadow: 0 -1px 0 rgba(0,0,0,.2)
-    background-color: LINK_COLOR
-  [class^="icon-"]
-    margin-right: 2px
-
-
-// TABS AND PILLS
-
-.nav-tabs,
-.nav-pills
-  clearfix()
+    line-height: TOOLBAR_HEIGHT
+    background: GRAYDARK
+    &:hover
+      background: GRAY
+    &.active
+      background: lighten(GRAY,20%)
+  
+sidebar()
+  navs-base()
+  background: GRAYLIGHT
   li
-    float: left
-    a
-      padding-right: 12px
-      padding-left: 12px
-      margin-right: 2px
-      line-height: 14px // keeps the overall height an even number
-
-
-// TABS
-
-.nav-tabs
-  border-bottom: 1px solid #ddd
-  li
-    margin-bottom: -1px
-    a
-      padding-top: 9px
-      padding-bottom: 9px
-      border: 1px solid transparent
-      border-radius: 4px 4px 0 0
-      &:hover
-        border-color: GRAYLIGHTER GRAYLIGHTER #ddd
-  .active a,
-  .active a:hover
-    color: GRAY
-    background-color: WHITE
-    border: 1px solid #ddd
-    border-bottom-color: transparent
-    cursor: default
-
-
-// PILLS
-
-.nav-pills 
-  li a
-    padding-top: 8px
-    padding-bottom: 8px
-    margin-top: 2px
-    margin-bottom: 2px
-    border-radius: 5px
-  .active a,
-  .active a:hover
-    color: WHITE
-    background-color: LINK_COLOR
-
-
-
-
-// STACKED NAV
-// -----------
-
-.nav-stacked 
-  li
-    float: none
-  li a
-    margin-right: 0 // no need for the gap between nav items
-
-
-.nav-tabs.nav-stacked
-  border-bottom: 0
-  li a
-    border: 1px solid #ddd
-    border-radius: 0
-  li:first-child a
-    border-radius: 4px 4px 0 0
-  li:last-child a
-    border-radius: 0 0 4px 4px
-  li a:hover
-    border-color: #ddd
-    z-index: 2
-
-
-.nav-pills.nav-stacked 
-  li a
-    margin-bottom: 3px
-  li:last-child a
-    margin-bottom: 1px // decrease margin to match sizing of stacked tabs
-
-
-// DROPDOWNS
-.nav-tabs .dropdown-menu,
-.nav-pills .dropdown-menu
-  margin-top: 1px
-  border-width: 1px
-
-.nav-pills .dropdown-menu
-  border-radius: 4px
-
-.nav-tabs .dropdown-toggle .caret,
-.nav-pills .dropdown-toggle .caret
-  border-top-color: LINK_COLOR
-  margin-top: 6px
-
-.nav-tabs .dropdown-toggle:hover .caret,
-.nav-pills .dropdown-toggle:hover .caret
-  border-top-color: LINK_COLOR_HOVER
-
-.nav-tabs .active .dropdown-toggle .caret,
-.nav-pills .active .dropdown-toggle .caret
-  border-top-color: GRAYDARK
-
-.nav > .dropdown.active > a:hover
-  color: BLACK
-  cursor: pointer
-
-
-.nav-tabs .open .dropdown-toggle,
-.nav-pills .open .dropdown-toggle,
-.nav > .open.active > a:hover
-  color: WHITE
-  background-color: GRAYLIGHT
-  border-color: GRAYLIGHT
-
-.nav .open .caret,
-.nav .open.active .caret,
-.nav .open a:hover .caret
-  border-top-color: WHITE
-  opacity: 100
-
-
-.tabs-stacked .open > a:hover
-  border-color: GRAYLIGHT
-
-
-
-
-// TABBABLE
-// --------
-
-
-// COMMON STYLES
-
-.tabbable
-  clearfix()
-
-.tab-content
-  overflow: hidden // prevent content from running below tabs
-
-.tabs-below .nav-tabs,
-.tabs-right .nav-tabs,
-.tabs-left .nav-tabs
-  border-bottom: 0
-
-.tab-content > .tab-pane,
-.pill-content > .pill-pane
-  display: none
-
-.tab-content > .active,
-.pill-content > .active
-  display: block
-
-
-
-// BOTTOM
-
-
-.tabs-below .nav-tabs
-  border-top: 1px solid #ddd
-
-.tabs-below .nav-tabs > li
-  margin-top: -1px
-  margin-bottom: 0
-
-.tabs-below .nav-tabs > li > a
-  border-radius: 0 0 4px 4px
-  &:hover
-    border-bottom-color: transparent
-    border-top-color: #ddd
-
-
-.tabs-below .nav-tabs .active > a,
-.tabs-below .nav-tabs .active > a:hover
-  border-color: transparent #ddd #ddd #ddd
-
-
-// LEFT & RIGHT
-
-.tabs-left .nav-tabs > li,
-.tabs-right .nav-tabs > li
-  float: none
-
-.tabs-left .nav-tabs > li > a,
-.tabs-right .nav-tabs > li > a
-  min-width: 74px
-  margin-right: 0
-  margin-bottom: 3px
-
-
-.tabs-left .nav-tabs
-  float: left
-  margin-right: 19px
-  border-right: 1px solid #ddd
-
-.tabs-left .nav-tabs > li > a
-  margin-right: -1px
-  $border-radius(4px 0 0 4px)
-
-.tabs-left .nav-tabs > li > a:hover
-  border-color: GRAYLIGHTER #ddd GRAYLIGHTER GRAYLIGHTER
-
-.tabs-left .nav-tabs .active > a,
-.tabs-left .nav-tabs .active > a:hover
-  border-color: #ddd transparent #ddd #ddd
-  *border-right-color: WHITE
-
-.tabs-right .nav-tabs
-  float: right
-  margin-left: 19px
-  border-left: 1px solid #ddd
-
-.tabs-right .nav-tabs > li > a
-  margin-left: -1px
-  border-radius: 0 4px 4px 0
-
-.tabs-right .nav-tabs > li > a:hover
-  border-color: GRAYLIGHTER GRAYLIGHTER GRAYLIGHTER #ddd
-
-.tabs-right .nav-tabs .active > a,
-.tabs-right .nav-tabs .active > a:hover
-  border-color: #ddd #ddd #ddd transparent
-  *border-left-color: WHITE
-
-
+    display: block
+    padding-left: 10px
+    line-height: 2em
+    &.active
+      background: lighten(GRAYLIGHT,50%)
+    &:hover
+      background: darken(GRAYLIGHT,20%)
